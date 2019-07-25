@@ -69,5 +69,5 @@ if __name__=='__main__':
     # html_tag('b') 是一个闭包，它接受一个函数，并返回一个函数
     # hello = html_tags('b')(hello)
 
-    get_hello()
+    # get_hello()
     # t_hello('nana')
