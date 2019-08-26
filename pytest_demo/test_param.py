@@ -10,16 +10,25 @@ from datetime import datetime, timedelta
 
 import pytest
 
-testdata=[
-    (datetime(2001,12,12),datetime(2001,12,11),timedelta(1)),
-    (datetime(2001,12,11),datetime(2001,12,12),timedelta(-1))
+testdata = [
+    (datetime(2001, 12, 12), datetime(2001, 12, 11), timedelta(1)),
+    (datetime(2001, 12, 11), datetime(2001, 12, 12), timedelta(-1))
 ]
 
-@pytest.mark.parametrize("a,b,expected",testdata)
-def test_timedistance_v0(a,b,expected):
-    diff=a-b
-    assert diff==expected
+
+@pytest.mark.parametrize("a,b,expected", testdata)
+def test_timedistance_v0(a, b, expected):
+    diff = a - b
+    assert diff == expected
 
 
-if __name__=='__main__':
-    pytest.main([test_timedistance_v0])
+
+@pytest.mark.parametrize('x', [0, 1])
+@pytest.mark.parametrize('y', [2, 3])
+def test_foo(x, y):
+    print('测试组合:x->%s,y->%s' % (x, y))
+    pass
+
+
+if __name__ == '__main__':
+    pytest.main()
