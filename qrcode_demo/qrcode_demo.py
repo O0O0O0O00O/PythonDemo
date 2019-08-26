@@ -6,7 +6,15 @@
 # @ProjectName: PythonDemo
 # @Software : PyCharm
 # @Description :
+"""
+qrcode支持中文数据，而myqr不支持中文等字符。
+qrcode不能设置背景图，但是能将图片放在二维码中间。
+myqr可以将背景设置为图片，并且允许为动态图。
+"""
+import os
 import qrcode
+import zxing
+from MyQR import myqr
 from PIL import Image
 
 
@@ -51,6 +59,18 @@ def create_icon_qrcode():
     img.paste(icon,(w,h),mask=None)
     img.save('ju.png')
 
+def myqr_demo():
+    words='sa zhu'
+    version,level,qr_name=myqr.run(words=words,version=10,picture='hh.jpg',colorized=True,save_name='ju1.png',save_dir=os.getcwd())
+    print(version,level,qr_name)
+
+
+def parse_qrcode(filename):
+    # 解析二维码
+    reader=zxing.BarCodeReader()
+    barcode=reader.decode(filename)
+    print(barcode)
+
 
 if __name__ == '__main__':
-    create_icon_qrcode()
+    myqr_demo()
