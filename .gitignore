@@ -5,3 +5,5 @@
 *.log.*
 *.png
 *.jpg
+
+.pytest_cache
